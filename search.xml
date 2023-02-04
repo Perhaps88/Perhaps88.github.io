@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>ksweb+HP_client实现内网穿透</title>
+      <link href="/2023/02/04/ksweb-HP-client%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+      <url>/2023/02/04/ksweb-HP-client%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="下载和配置ksweb数据库"><a href="#下载和配置ksweb数据库" class="headerlink" title="下载和配置ksweb数据库"></a>下载和配置ksweb数据库</h1><p>1.首先在QQ加这个QQ群 群号：&#x3D;&#x3D;767474069&#x3D;&#x3D; 加入之后在群文件下载最新＊＊的ksweb＊＊和＊＊HP-client＊＊</p><p>2.打开ksweb它会进行初始化 待完成后 滑动到工具着一栏 选择phpmyadmin 再点击Nginx 确认后等它下载完成后重新进入ksweb</p><p>3.此时你可以在状态这一栏发现多出来一个主机 点进去 它会进入你手机的浏览器 用户名＊＊root＊＊ 密码为空 直接点击执行就ok了</p><p>4点击三这个按钮 找到一个＊＊新建一个账户＊＊ 账户名必须为英文的 设置密码  然后全局权限选上 滑到下面 点击执行就ok了</p><p>5.然后把你写的html源码放在&#x2F;storage&#x2F;emulated&#x2F;0&#x2F;htdocs&#x2F; 把原来的index.php删除 重启ksweb 在Nginx这一栏 点击下方的加号 新建一个主机</p><h1 id="hp-client"><a href="#hp-client" class="headerlink" title="hp-client"></a>hp-client</h1><p>1.注册一个账户<br>2.点击左上角的上三 点击域名管理 在里面添加域名 二级域名要写英文的（随便写什么名只要是英文就可以了）<br>3.点击三 选择穿透服务 点击刷新配置信息 然后添加 内网ip就是 localhost 内网端口8002<br>4.穿透服务选择一个大一点的 穿透域名选择你在域名管理新建的域名点击随机端口 在点确定就可以了</p><h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><p>＊＊在穿透日志你会看见一个链接 那个就是你的网址 ＊＊<br>如果觉得这个教程对你有帮助 如果可以的话下面的打赏可以点一下🤑</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown(MD)文档语法使用指南</title>
       <link href="/2023/02/02/Markdown-MD-%E6%96%87%E6%A1%A3%E8%AF%AD%E6%B3%95%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
       <url>/2023/02/02/Markdown-MD-%E6%96%87%E6%A1%A3%E8%AF%AD%E6%B3%95%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
