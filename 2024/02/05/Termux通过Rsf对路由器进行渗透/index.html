@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Termux通过Rsf对路由器进行渗透 | 巅峰</title><meta name="author" content="王昌贵"><meta name="copyright" content="王昌贵"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.RSF[routersploit]简介RouterSploit包含了27个品牌的上百种漏洞利用模块，涉及的路由器、摄像头，交换机等设备有几百种渗透的时候，用户首先根据目标设备的品牌选择对应的扫描模块，用以发现漏洞。一旦漏洞识别，就可以根据提示使用对应的漏洞利用模块，即可进行渗透攻击，同时，该工具还提供授权认证爆破模块，用以破解设备常见服务的用户名和密码。「项目地址：」 2.安装RSF先把依赖给">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Termux通过Rsf对路由器进行渗透">
+<meta property="og:url" content="http://example.com/2024/02/05/Termux%E9%80%9A%E8%BF%87Rsf%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B8%97%E9%80%8F/index.html">
+<meta property="og:site_name" content="巅峰">
+<meta property="og:description" content="1.RSF[routersploit]简介RouterSploit包含了27个品牌的上百种漏洞利用模块，涉及的路由器、摄像头，交换机等设备有几百种渗透的时候，用户首先根据目标设备的品牌选择对应的扫描模块，用以发现漏洞。一旦漏洞识别，就可以根据提示使用对应的漏洞利用模块，即可进行渗透攻击，同时，该工具还提供授权认证爆破模块，用以破解设备常见服务的用户名和密码。「项目地址：」 2.安装RSF先把依赖给">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wmimg.com/MemSCy.jpeg">
+<meta property="article:published_time" content="2024-02-05T15:56:47.000Z">
+<meta property="article:modified_time" content="2024-02-05T16:09:44.000Z">
+<meta property="article:author" content="王昌贵">
+<meta property="article:tag" content="termux教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wmimg.com/MemSCy.jpeg"><link rel="shortcut icon" href="../../../../img/favicon.png"><link rel="canonical" href="http://example.com/2024/02/05/Termux%E9%80%9A%E8%BF%87Rsf%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B8%97%E9%80%8F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="../../../../css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Termux通过Rsf对路由器进行渗透',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-06 00:09:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="../img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="../archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="../categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="../music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="../Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="../movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://wmimg.com/MemSCy.jpeg')"><nav id="nav"><span id="blog-info"><a href="../index.html" title="巅峰"><span class="site-name">巅峰</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="../music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="../Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="../movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Termux通过Rsf对路由器进行渗透</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-05T15:56:47.000Z" title="发表于 2024-02-05 23:56:47">2024-02-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-05T16:09:44.000Z" title="更新于 2024-02-06 00:09:44">2024-02-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="../../../../categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Termux通过Rsf对路由器进行渗透"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="1-RSF-routersploit-简介"><a href="#1-RSF-routersploit-简介" class="headerlink" title="1.RSF[routersploit]简介"></a>1.RSF[routersploit]简介</h3><p>RouterSploit包含了27个品牌的上百种漏洞利用模块，涉及的路由器、摄像头，交换机等设备有几百种渗透的时候，用户首先根据目标设备的品牌选择对应的扫描模块，用以发现漏洞。一旦漏洞识别，就可以根据提示使用对应的漏洞利用模块，即可进行渗透攻击，同时，该工具还提供授权认证爆破模块，用以破解设备常见服务的用户名和密码。<br><a target="_blank" rel="noopener" href="https://github.com/reverse-shell/routersploit">「项目地址：」</a></p>
+<h3 id="2-安装RSF"><a href="#2-安装RSF" class="headerlink" title="2.安装RSF"></a>2.安装RSF</h3><p>先把依赖给解决下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install python rust libffi-static ncurses-static python-cryptography python-bcrypt</span><br></pre></td></tr></table></figure>
+<p>通过官方提供的安装脚本安装pip包管理工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py &amp;&amp; python get-pip</span><br></pre></td></tr></table></figure>
+<p>再把github上的项目文件克隆到本地并打开文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/reverse-shell/routersploit &amp;&amp; <span class="built_in">cd</span> routersploit</span><br></pre></td></tr></table></figure>
+<p>最后通过pip包管理安装下python依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<p>可以启动RSF了</p>
+<blockquote>
+<p>如果你想要在任何位置都你直接启动Rsf的话，你可以在routersploit目录下执行“pip3 install .”，将routersploit安装到系统中～<br>如果在运行中出现错误可以试一下下面的指令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U setuptools &amp;&amp; python3 rsf.py</span><br></pre></td></tr></table></figure>
+<h3 id="3-RSF渗透演示"><a href="#3-RSF渗透演示" class="headerlink" title="3.RSF渗透演示"></a>3.RSF渗透演示</h3><blockquote>
+<p>这里我就直接挪用我之前在“iPhone&#x2F;iPad通过iSH安装Routersploit对路由器进行渗透”一文中写的吧\\x7e」</p>
+</blockquote>
+<h4 id="3-1RSF模块与其它说明"><a href="#3-1RSF模块与其它说明" class="headerlink" title="3.1RSF模块与其它说明"></a>3.1RSF模块与其它说明</h4><p>先给各位介绍下RSF的模块分类 其实和Msf差不多Rsf主要的模块有3个</p>
+<blockquote>
+<p>Scanners- 模块功能主要为检查目标设备是否存在可利用的安全漏洞<br>Creds - 模块功能主要针对网络服务的登录认证口令进行检测<br>Exploits - 模块功能主要为识别到目标设备安全漏洞后，对漏洞进行利用，实现提权等目地payloads - 负责为各种体系结构和注入点生成有效负载的模块<br>generic - 执行通用攻击的模块 </p>
+</blockquote>
+<p> 这里再给大家说明一下Rsf命令行中的指令有哪些免得下面的教程步骤你们看得都一头雾</p>
+<blockquote>
+<p>nuse 模块 （使用该模块<br>set 变量 （配置变量）#通常用于设置目标与线程<br>nshow options （显示模块选项<br>check （检查目标是否有漏洞可以利用）<br>run （对目标运行模块）</p>
+</blockquote>
+<h4 id="3-1扫描漏洞"><a href="#3-1扫描漏洞" class="headerlink" title="3.1扫描漏洞"></a>3.1扫描漏洞</h4><p>「目标路由器：我家的古董中国移动路由器」这里我使用scanners中的autopwn扫描程序，用于扫描目标路由器的漏洞#这里它会将所有RSF收录的漏洞都扫描一遍启动Rsf并在Rsf命令行中执行一下命令「使用scanners&#x2F;autopwn扫描程序」</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use scanners/autopwn</span><br></pre></td></tr></table></figure>
+<p>设置目标路由器的IP「这个你可以在设置中轻松找到」</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> target 192.168.0.100</span><br></pre></td></tr></table></figure>
+<p>然后运行在这段扫描过程中Rsf会输出一堆玩意</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[ + ]存在漏洞<br>[ - ]漏洞不存在<br>[ * ]无法确定 #这种需要在扫描完成后自己手工测试)</p>
+</blockquote>
+<p><img src="https://wmimg.com/zFQ4lS.png" alt="CSDN_1707148036778.png"><br>从扫描结果可以看到该路由器存在eseries_themoon_rce漏洞，接下来就得Exploits模块出场了</p>
+<h4 id="3-2利用漏洞"><a href="#3-2利用漏洞" class="headerlink" title="3.2利用漏洞"></a>3.2利用漏洞</h4><p>这里我们直接把上面扫描结果中显示的漏洞位置复制下来并启动它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use exploits/routers/linksys/eseries_themoon_rce</span><br></pre></td></tr></table></figure>
+
+<p>后面我就不再一步一步说明了看不懂的盆友可以看看“3.1RSF模块与其它说明”这部分的说明噢\x7e<br><img src="https://wmimg.com/77XN61.png" alt="CSDN_1707148224504.png"><br>这里可以看到Rsf攻击成功了并进入了cmd界面注意：到这里攻击还没有结束，下面还需要对漏洞进行进一步利用但是你这个好自己琢磨了我这里就不掩饰了</p>
+<h3 id="4-警告"><a href="#4-警告" class="headerlink" title="4.警告"></a>4.警告</h3><p>即便路由器完全没有设防，或者很容易入侵，你也要明白未经许可入侵路由器是非法的，要使用它，请确保你已经获得准许另外，autopwn弄出的动静可能会有点大，可能会被某些安全防御措施检测到到时候被抓的就是你咯 </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">王昌贵</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/02/05/Termux%E9%80%9A%E8%BF%87Rsf%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B8%97%E9%80%8F/">http://example.com/2024/02/05/Termux%E9%80%9A%E8%BF%87Rsf%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B8%97%E9%80%8F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">巅峰</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../../../tags/termux%E6%95%99%E7%A8%8B/">termux教程</a></div><div class="post_share"><div class="social-share" data-image="https://wmimg.com/MemSCy.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="../../../../img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="../../../../img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="../../../../img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="../../../../img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="../../12/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hello World</div></div></a></div><div class="next-post pull-right"><a href="../../02/termux-hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="termux+hexo+GitHub搭建个人博客"><img class="cover" src="https://wmimg.com/i/458/2024/02/65be79ff97c4a.png" onerror="onerror=null;src='../../../../img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">termux+hexo+GitHub搭建个人博客</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="../img/avatar.jpg" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">王昌贵</div><div class="author-info__description">在发光吗？我的少年</div></div><div class="card-info-data site-data is-center"><a href="../archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="../categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Perhaps88"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Perhaps88" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="../mailto:2814307323@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-RSF-routersploit-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">1.RSF[routersploit]简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85RSF"><span class="toc-number">2.</span> <span class="toc-text">2.安装RSF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-RSF%E6%B8%97%E9%80%8F%E6%BC%94%E7%A4%BA"><span class="toc-number">3.</span> <span class="toc-text">3.RSF渗透演示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1RSF%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%85%B6%E5%AE%83%E8%AF%B4%E6%98%8E"><span class="toc-number">3.1.</span> <span class="toc-text">3.1RSF模块与其它说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E6%89%AB%E6%8F%8F%E6%BC%8F%E6%B4%9E"><span class="toc-number">3.2.</span> <span class="toc-text">3.1扫描漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2%E5%88%A9%E7%94%A8%E6%BC%8F%E6%B4%9E"><span class="toc-number">3.3.</span> <span class="toc-text">3.2利用漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AD%A6%E5%91%8A"><span class="toc-number">4.</span> <span class="toc-text">4.警告</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2024/02/12/termux%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" title="termux搭建博客教程">termux搭建博客教程</a><time datetime="2024-02-12T15:19:27.140Z" title="发表于 2024-02-12 23:19:27">2024-02-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2024/02/12/hello-world/" title="Hello World">Hello World</a><time datetime="2024-02-12T03:52:41.027Z" title="发表于 2024-02-12 11:52:41">2024-02-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2024/02/05/Termux%E9%80%9A%E8%BF%87Rsf%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B8%97%E9%80%8F/" title="Termux通过Rsf对路由器进行渗透"><img src="https://wmimg.com/MemSCy.jpeg" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="Termux通过Rsf对路由器进行渗透"/></a><div class="content"><a class="title" href="../2024/02/05/Termux%E9%80%9A%E8%BF%87Rsf%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B8%97%E9%80%8F/" title="Termux通过Rsf对路由器进行渗透">Termux通过Rsf对路由器进行渗透</a><time datetime="2024-02-05T15:56:47.000Z" title="发表于 2024-02-05 23:56:47">2024-02-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2024/02/02/termux-hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="termux+hexo+GitHub搭建个人博客"><img src="https://wmimg.com/i/458/2024/02/65be79ff97c4a.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="termux+hexo+GitHub搭建个人博客"/></a><div class="content"><a class="title" href="../2024/02/02/termux-hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="termux+hexo+GitHub搭建个人博客">termux+hexo+GitHub搭建个人博客</a><time datetime="2024-02-02T05:23:10.000Z" title="发表于 2024-02-02 13:23:10">2024-02-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2024/02/01/Markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/" title="Markdown语法指南"><img src="https://wmimg.com/i/458/2024/02/65be7be7e9633.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="Markdown语法指南"/></a><div class="content"><a class="title" href="../2024/02/01/Markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/" title="Markdown语法指南">Markdown语法指南</a><time datetime="2024-02-01T15:22:52.000Z" title="发表于 2024-02-01 23:22:52">2024-02-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 王昌贵</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><img src="https://haiyong.site/img/icp.png"><a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:black" target="_blank">ICP备464号-1(191648)</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="../../../../js/utils.js"></script><script src="../../../../js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

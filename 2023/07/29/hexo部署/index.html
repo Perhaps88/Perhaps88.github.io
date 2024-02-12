@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hexo部署 | 巅峰</title><meta name="author" content="王昌贵"><meta name="copyright" content="王昌贵"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.说明如果不知道如何使用Hexo搭建个人博客的，请到termux搭建博客教程里查看详细教程 2.效果图 3.开始部署1、进入GitHub官网，官网地址：https:&#x2F;&#x2F;github.com，登入自己的账号，新建一个仓库，如下图所示，这里wjhsamrter可以自定义，结尾一定要是.github.io ,https:&#x2F;&#x2F;wjhsmarter.github.io,这个将会是部署好之后访问的域名,配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo部署">
+<meta property="og:url" content="http://example.com/2023/07/29/hexo%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="巅峰">
+<meta property="og:description" content="1.说明如果不知道如何使用Hexo搭建个人博客的，请到termux搭建博客教程里查看详细教程 2.效果图 3.开始部署1、进入GitHub官网，官网地址：https:&#x2F;&#x2F;github.com，登入自己的账号，新建一个仓库，如下图所示，这里wjhsamrter可以自定义，结尾一定要是.github.io ,https:&#x2F;&#x2F;wjhsmarter.github.io,这个将会是部署好之后访问的域名,配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2023-07-29T15:10:03.000Z">
+<meta property="article:modified_time" content="2023-07-29T15:10:48.000Z">
+<meta property="article:author" content="王昌贵">
+<meta property="article:tag" content="hexo教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="../../../../img/favicon.png"><link rel="canonical" href="http://example.com/2023/07/29/hexo%E9%83%A8%E7%BD%B2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="../../../../css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo部署',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-29 23:10:48'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="../img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="../archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="../categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="../music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="../Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="../movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="../index.html" title="巅峰"><span class="site-name">巅峰</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="../music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="../Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="../movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">hexo部署</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-29T15:10:03.000Z" title="发表于 2023-07-29 23:10:03">2023-07-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-29T15:10:48.000Z" title="更新于 2023-07-29 23:10:48">2023-07-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="hexo部署"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1.说明"></a>1.说明</h2><p>如果不知道如何使用Hexo搭建个人博客的，请到<strong>termux搭建博客教程</strong>里查看详细教程</p>
+<h2 id="2-效果图"><a href="#2-效果图" class="headerlink" title="2.效果图"></a>2.效果图</h2><p><img src="https://missuo.ru/file/063e5cba3e2b7fabd0aea.jpg" alt="效果图"></p>
+<h2 id="3-开始部署"><a href="#3-开始部署" class="headerlink" title="3.开始部署"></a>3.开始部署</h2><p>1、进入GitHub官网，官网地址：<a target="_blank" rel="noopener" href="https://github.com,登入自己的账号,新建一个仓库,如下图所示,这里wjhsamrter可以自定义,结尾一定要是.github.io/">https://github.com，登入自己的账号，新建一个仓库，如下图所示，这里wjhsamrter可以自定义，结尾一定要是.github.io</a> ,<a target="_blank" rel="noopener" href="https://wjhsmarter.github.io,这个将会是部署好之后访问的域名,配置好之后点击create/">https://wjhsmarter.github.io,这个将会是部署好之后访问的域名,配置好之后点击Create</a> repository即可以创建好仓库，建好仓库之后，把仓库克隆到本地，然后把搭建好的博客项目复制到当前的仓库下面。<br><img src="https://missuo.ru/file/621bea54ee528bbbd0444.png" alt="github操作指南"><br>  2、配置Git环境，这一步就不细说了，<a target="_blank" rel="noopener" href="https://git-scm.com/download/%EF%BC%8C%E4%B8%8B%E8%BD%BD%E9%80%82%E5%90%88%E8%87%AA%E5%B7%B1%E7%9A%84Git%E5%AE%89%E8%A3%85%E5%8D%B3%E5%8F%AF">https://git-scm.com/download/，下载适合自己的Git安装即可</a><br>     3、给Hexo安装Git插件，安装hexo-deployer-git，使用终端进入到自己本地的项目的目录下，输入下面命令<br>      <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure><br> 4、修改_config.yml文件<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.htmldeploy: </span></span><br><span class="line"><span class="comment"># 部署部分的设置  </span></span><br><span class="line"><span class="built_in">type</span>: git  repo: https://github.com/github用户名/github用户名.github.io.git</span><br><span class="line"> branch: master</span><br></pre></td></tr></table></figure><br><strong>注意</strong>，这里是刚刚创建的GitHub上面的SSH的地址，如下图<br> 5、使用终端进入到项目的目录,执行下面的命令部署<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 安装hexo</span></span><br><span class="line">npm install hexo</span><br><span class="line"> <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo g</span><br><span class="line"> <span class="comment"># 部署hexo d </span></span><br></pre></td></tr></table></figure><br>如果出现一下内容则说明生成静态文件成功<br><img src="https://missuo.ru/file/1afbcdfac72e86a57a8ee.jpg" alt="效果图"><br>如果出现INFO Deploy done: git 则说明部署成功</p>
+<h3 id="如果出现-无法部署的情况-可能如下"><a href="#如果出现-无法部署的情况-可能如下" class="headerlink" title="如果出现 无法部署的情况 可能如下"></a>如果出现 无法部署的情况 可能如下</h3><ol>
+<li>hexo部署到github不能用帐号密码</li>
+<li>没有安装 git推送插件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 hexo-githubPage 插件</span></span><br><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+如果是第一种问题的话比较复杂 但是还是难不倒我的😜</li>
+</ol>
+<h4 id="github新规规定再从hexo提交代码只能用token。"><a href="#github新规规定再从hexo提交代码只能用token。" class="headerlink" title="github新规规定再从hexo提交代码只能用token。"></a>github新规规定再从hexo提交代码只能用token。</h4><p>解决：</p>
+<ol>
+<li>去Seqttings-&gt;Developer settings-&gt;Personal access tokens-&gt;Personal access tokens生成一个新的令牌：<br><img src="https://missuo.ru/file/719e83471886657237658.png" alt="效果图"></li>
+<li>hexo -d执行完后会有一个对话框提示你输入账号密码。注意，这里要输入的不是你的账号和密码而是<br>（输入完成后可能还会要求你再次输入一遍，输入内容依然是下面这个。）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">账号：oauth2</span><br><span class="line">密码:你刚刚生成的token</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="如果还不能的话-就可能是最后这个问题了"><a href="#如果还不能的话-就可能是最后这个问题了" class="headerlink" title="如果还不能的话 就可能是最后这个问题了"></a>如果还不能的话 就可能是最后这个问题了</h3><ol>
+<li>在我们拿到token后，不妨先去修改我们的_config.yml文件。<br>跟着up主步骤一步一步做的话，我们的repo一般如下写的（下面是我的实例）：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">repo: https://github.com/SoberGit/SoberGit.github.io.git</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+现在我们修改成如下：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">repo: https://【这里填你拿到的token】@github.com/这里写github用户名/这里也一样.github.io.git</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>然后保存并退出，接着在命令行里继续输入 hexo d，不要着急耐心等待一下就可以成功将本地内容部署到指定的仓库啦，而且不需要再输入密码(token)了~(如果还出现password 就把token粘贴上去就应该ok了</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">王昌贵</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/07/29/hexo%E9%83%A8%E7%BD%B2/">http://example.com/2023/07/29/hexo%E9%83%A8%E7%BD%B2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">巅峰</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../../../tags/hexo%E6%95%99%E7%A8%8B/">hexo教程</a></div><div class="post_share"><div class="social-share" data-image="../../../../img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="../../../../img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="../../../../img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="../../../../img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="../../../../img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="../Markdown%E8%AF%AD%E6%B3%95%E6%9C%80%E5%85%A8%E6%80%BB%E6%B1%87/" title="Markdown语法最全总汇"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Markdown语法最全总汇</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="../../../../2024/02/12/termux%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" title="termux搭建博客教程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-12</div><div class="title">termux搭建博客教程</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="../img/avatar.jpg" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">王昌贵</div><div class="author-info__description">在发光吗？我的少年</div></div><div class="card-info-data site-data is-center"><a href="../archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="../categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Perhaps88"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Perhaps88" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="../mailto:2814307323@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">1.说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-number">2.</span> <span class="toc-text">2.效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2"><span class="toc-number">3.</span> <span class="toc-text">3.开始部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%87%BA%E7%8E%B0-%E6%97%A0%E6%B3%95%E9%83%A8%E7%BD%B2%E7%9A%84%E6%83%85%E5%86%B5-%E5%8F%AF%E8%83%BD%E5%A6%82%E4%B8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">如果出现 无法部署的情况 可能如下</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#github%E6%96%B0%E8%A7%84%E8%A7%84%E5%AE%9A%E5%86%8D%E4%BB%8Ehexo%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%8F%AA%E8%83%BD%E7%94%A8token%E3%80%82"><span class="toc-number">3.1.1.</span> <span class="toc-text">github新规规定再从hexo提交代码只能用token。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E8%BF%98%E4%B8%8D%E8%83%BD%E7%9A%84%E8%AF%9D-%E5%B0%B1%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9C%80%E5%90%8E%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E4%BA%86"><span class="toc-number">3.2.</span> <span class="toc-text">如果还不能的话 就可能是最后这个问题了</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2024/02/12/termux%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" title="termux搭建博客教程">termux搭建博客教程</a><time datetime="2024-02-12T15:19:27.140Z" title="发表于 2024-02-12 23:19:27">2024-02-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2024/02/12/hello-world/" title="Hello World">Hello World</a><time datetime="2024-02-12T03:52:41.027Z" title="发表于 2024-02-12 11:52:41">2024-02-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2024/02/05/Termux%E9%80%9A%E8%BF%87Rsf%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B8%97%E9%80%8F/" title="Termux通过Rsf对路由器进行渗透"><img src="https://wmimg.com/MemSCy.jpeg" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="Termux通过Rsf对路由器进行渗透"/></a><div class="content"><a class="title" href="../2024/02/05/Termux%E9%80%9A%E8%BF%87Rsf%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%B8%97%E9%80%8F/" title="Termux通过Rsf对路由器进行渗透">Termux通过Rsf对路由器进行渗透</a><time datetime="2024-02-05T15:56:47.000Z" title="发表于 2024-02-05 23:56:47">2024-02-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2024/02/02/termux-hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="termux+hexo+GitHub搭建个人博客"><img src="https://wmimg.com/i/458/2024/02/65be79ff97c4a.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="termux+hexo+GitHub搭建个人博客"/></a><div class="content"><a class="title" href="../2024/02/02/termux-hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="termux+hexo+GitHub搭建个人博客">termux+hexo+GitHub搭建个人博客</a><time datetime="2024-02-02T05:23:10.000Z" title="发表于 2024-02-02 13:23:10">2024-02-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2024/02/01/Markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/" title="Markdown语法指南"><img src="https://wmimg.com/i/458/2024/02/65be7be7e9633.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="Markdown语法指南"/></a><div class="content"><a class="title" href="../2024/02/01/Markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/" title="Markdown语法指南">Markdown语法指南</a><time datetime="2024-02-01T15:22:52.000Z" title="发表于 2024-02-01 23:22:52">2024-02-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 王昌贵</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><img src="https://haiyong.site/img/icp.png"><a href="https://beian.miit.gov.cn/#/Integrated/index" style="color:black" target="_blank">ICP备464号-1(191648)</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="../../../../js/utils.js"></script><script src="../../../../js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
